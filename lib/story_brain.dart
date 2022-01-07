@@ -50,7 +50,36 @@ class StoryBrain {
     return _storyData[0].choice2;
   }
 
-  void nextStory(int choiceNumber) {}
+  void nextStory(int choiceNumber) {
+    void storyTwo() {
+      if (choiceNumber == 1) {
+        _storyNumber = 5;
+      }
+
+      if (choiceNumber == 2) {
+        _storyNumber = 4;
+      }
+    }
+
+    void storyOne() {
+      if (choiceNumber == 1) {
+        _storyNumber = 2;
+        storyTwo();
+      }
+      if (choiceNumber == 2) {
+        _storyNumber = 3;
+      }
+    }
+
+    if (_storyNumber == 0 && choiceNumber == 1) {
+      _storyNumber = 2;
+      storyTwo();
+    }
+    if (_storyNumber == 0 && choiceNumber == 2) {
+      _storyNumber = 1;
+      storyOne();
+    }
+  }
 }
 
 //TODO: Step 23 - Use the storyNumber property inside getStory(), getChoice1() and getChoice2() so that it gets the updated story and choices rather than always just the first (0th) one.
