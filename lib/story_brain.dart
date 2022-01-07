@@ -79,7 +79,13 @@ class StoryBrain {
       _storyNumber = 1;
       storyOne();
     }
+
+    if (_storyNumber == 3 || _storyNumber == 4 || _storyNumber == 5) {
+      restart();
+    }
   }
+
+  void restart() => _storyNumber = 0;
 }
 
 //TODO: Step 23 - Use the storyNumber property inside getStory(), getChoice1() and getChoice2() so that it gets the updated story and choices rather than always just the first (0th) one.
