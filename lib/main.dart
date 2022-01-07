@@ -8,6 +8,7 @@ void main() => runApp(Destini());
 class Destini extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
       home: StoryPage(),
     );
@@ -60,12 +61,16 @@ class _StoryPageState extends State<StoryPage> {
                     storyBrain.getChoice1(),
                     style: TextStyle(
                       fontSize: 20.0,
+                      color: Colors.white,
                     ),
                   ),
                   onPressed: () {
                     //Choice 1 made by user.
                     //TODO: Step 18 - Call the nextStory() method from storyBrain and pass the number 1 as the choice made by the user.
-                    storyBrain.nextStory(1);
+                    setState(() {
+                      storyBrain.nextStory(1);
+                    });
+                    print('Choice 1 was being pressed');
                   },
                 ),
               ),
@@ -85,12 +90,16 @@ class _StoryPageState extends State<StoryPage> {
                       storyBrain.getChoice2(),
                       style: TextStyle(
                         fontSize: 20.0,
+                        color: Colors.white,
                       ),
                     ),
                     onPressed: () {
                       //Choice 2 made by user.
                       //TODO: Step 19 - Call the nextStory() method from storyBrain and pass the number 2 as the choice made by the user.
-                      storyBrain.nextStory(2);
+                      setState(() {
+                        storyBrain.nextStory(2);
+                      });
+                      print('Choice 2 was being pressed');
                     },
                   ),
                 ),

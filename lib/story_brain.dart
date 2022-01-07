@@ -50,37 +50,41 @@ class StoryBrain {
     return _storyData[_storyNumber].choice2;
   }
 
-  void nextStory(int choiceNumber) {
-    void storyTwo() {
-      if (choiceNumber == 1) {
-        _storyNumber = 5;
-      }
-
-      if (choiceNumber == 2) {
-        _storyNumber = 4;
-      }
-    }
-
-    void storyOne() {
-      if (choiceNumber == 1) {
-        _storyNumber = 2;
-        storyTwo();
-      }
-      if (choiceNumber == 2) {
-        _storyNumber = 3;
-      }
-    }
-
-    if (_storyNumber == 0 && choiceNumber == 1) {
+  void storyZero(choiceNumber) {
+    if (choiceNumber == 1) {
       _storyNumber = 2;
-      storyTwo();
     }
-    if (_storyNumber == 0 && choiceNumber == 2) {
+    if (choiceNumber == 2) {
       _storyNumber = 1;
-      storyOne();
     }
+  }
 
-    if (_storyNumber == 3 || _storyNumber == 4 || _storyNumber == 5) {
+  void storyOne(choiceNumber) {
+    if (choiceNumber == 1) {
+      _storyNumber = 2;
+    }
+    if (choiceNumber == 2) {
+      _storyNumber = 3;
+    }
+  }
+
+  void storyTwo(choiceNumber) {
+    if (choiceNumber == 1) {
+      _storyNumber = 5;
+    }
+    if (choiceNumber == 2) {
+      _storyNumber = 4;
+    }
+  }
+
+  void nextStory(int choiceNumber) {
+    if (_storyNumber == 0) {
+      storyZero(choiceNumber);
+    } else if (_storyNumber == 1) {
+      storyOne(choiceNumber);
+    } else if (_storyNumber == 2) {
+      storyTwo(choiceNumber);
+    } else {
       restart();
     }
   }
